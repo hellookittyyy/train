@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { trains } from '../data/trains';
 import TrainList from '../components/TrainList';
 import SearchFilters from '../components/SearchFilters';
-import { MousePointer2, Train } from 'lucide-react';
+import { MousePointer2, Train, Ticket } from 'lucide-react';
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchRoute, setSearchRoute] = useState('');
+  const navigate = useNavigate();
 
   const filteredTrains = trains.filter(train => {
     const matchesNumber = train.number.toLowerCase().includes(searchTerm.toLowerCase());
@@ -16,7 +18,13 @@ const Home = () => {
   });
 
   return (
-    <div className="container animate-fade-in" style={{ paddingBottom: '100px' }}>
+    <div className="container animate-fade-in" style={{ paddingBottom: '100px', position: 'relative' }}>
+      <button 
+        onClick={() => navigate('/my-tickets')}
+        style={{ position: 'absolute', top: '24px', right: '24px', display: 'flex', alignItems: 'center', gap: '8px', padding: '10px 20px', borderRadius: '100px', background: 'var(--primary)', color: 'white', border: 'none', fontWeight: 'bold', cursor: 'pointer', boxShadow: '0 4px 12px rgba(233, 30, 99, 0.3)' }}
+      >
+        <Ticket size={18} /> Мої квитки
+      </button>
       <header style={{ 
         padding: '60px 0 20px', 
         textAlign: 'center' 

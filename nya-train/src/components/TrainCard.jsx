@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './TrainCard.module.css';
 import { MousePointer2, MoveRight, Train } from 'lucide-react';
 
@@ -42,10 +43,10 @@ const TrainCard = ({ train }) => {
         <div className={styles.price}>
           {price}<small>₴</small>
         </div>
-        <button className={styles.bookBtn}>
+        <Link to={`/booking/${train.id}`} className={styles.bookBtn} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
           Select Seats
           <MousePointer2 size={18} />
-        </button>
+        </Link>
       </div>
     </div>
   );
