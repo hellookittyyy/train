@@ -1,0 +1,194 @@
+.container {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-sm);
+}
+
+.mapHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.mapHeader h3 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.legend {
+    display: flex;
+    gap: 16px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.colorBox {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+}
+
+.colorBox.free {
+    background-color: #E8F5E9;
+    border: 2px solid #81C784;
+}
+
+.colorBox.selected {
+    background-color: #E3F2FD;
+    border: 2px solid #64B5F6;
+}
+
+.colorBox.booked {
+    background-color: #FFEBEE;
+    border: 2px solid #E57373;
+}
+
+.wagonWrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 12px;
+}
+
+.wagonOutline {
+    display: inline-flex;
+    border: 3px solid var(--border);
+    border-radius: 20px;
+    padding: 12px;
+    background-color: var(--background);
+}
+
+.serviceArea {
+    width: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--border);
+    border-radius: 12px;
+    margin: 0 8px;
+    opacity: 0.7;
+    font-size: 1.2rem;
+}
+
+.compartments {
+    display: flex;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    background-color: white;
+}
+
+.compartment {
+    display: flex;
+    flex-direction: column;
+}
+
+.mainSeats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 12px;
+}
+
+.platzkartMainSeats {
+    border-right: 2px solid var(--border);
+}
+
+.compartment:last-child .platzkartMainSeats {
+    border-right: none;
+}
+
+.coupeMainSeats {
+    border-right: 2px solid var(--border);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 20px;
+}
+
+.compartment:last-child .coupeMainSeats {
+    border-right: none;
+}
+
+.seatRow {
+    display: flex;
+    gap: 8px;
+}
+
+.aisle {
+    height: 32px;
+}
+
+.coupeAisle {
+    height: 64px;
+}
+
+.sideSeats {
+    display: flex;
+    gap: 8px;
+    padding: 0 12px 18px 12px;
+    align-items: flex-end;
+}
+
+.platzkartSideSeats {
+    border-right: 2px solid var(--border);
+}
+
+.compartment:last-child .platzkartSideSeats {
+    border-right: none;
+}
+
+.seat {
+    width: 36px;
+    height: 46px;
+    border-radius: var(--radius-sm);
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    padding: 0;
+}
+
+.upperSeat {
+    border-top-width: 6px !important;
+}
+
+.lowerSeat {
+    border-bottom-width: 6px !important;
+}
+
+.seat.free {
+    background-color: #E8F5E9;
+    border-color: #81C784;
+    color: #2E7D32;
+    cursor: pointer;
+}
+
+.seat.free:hover {
+    transform: scale(1.05);
+    background-color: #C8E6C9;
+}
+
+.seat.selected {
+    background-color: #E3F2FD;
+    border-color: #64B5F6;
+    color: #1565C0;
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(100, 181, 246, 0.3);
+}
+
+.seat.booked {
+    background-color: #FFEBEE;
+    border-color: #E57373;
+    color: #C62828;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
